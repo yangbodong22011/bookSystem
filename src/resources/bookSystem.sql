@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS test_book;
+DROP DATABASE IF EXISTS booksystem;
 
-CREATE DATABASE test_book;
-USE test_book;
+CREATE DATABASE booksystem;
+USE booksystem;
 
 DROP TABLE IF EXISTS dict;
 DROP TABLE IF EXISTS user;
@@ -29,8 +29,8 @@ CREATE TABLE user (
   user_id      BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,                  /*主键 */
   user_name    CHAR(20)        NOT NULL,
   user_grade   CHAR(4),
-  user_qq      CHAR(20),
-  gmt_create   DATETIME                 DEFAULT CURRENT_TIMESTAMP,       /*用来表示此行数据的创建时间*  每张表都有这两行，下同/
+  user_mail    CHAR(50),
+  gmt_create   DATETIME                 DEFAULT CURRENT_TIMESTAMP,       /*用来表示此行数据的创建时间*  每张表都有这两行，下同*/
   gmt_modified DATETIME                 DEFAULT CURRENT_TIMESTAMP,       /*表示此行数据的更改时间*/
   PRIMARY KEY (user_id)
 );
@@ -48,8 +48,8 @@ CREATE TABLE password (
 /*书：书的基本信息*/
 CREATE TABLE book (
   book_id           BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-  book_image        BIGINT UNSIGNED,                                    /*此值和 book_id 相等，对于用户上传的图书照片，把它重命名成book_id.png/jpg
-                                                                        之后保存到相应的目录下，不往数据库中存*/
+  book_image        CHAR(24),                                           /*此值为book_id+图片后缀 ，对于用户上传的图书照片，把它重命名成book_id.png/jpg
+                                                                        之后保存到相应的目录下，数据库中只存图片名*/
   book_name         CHAR(20)        NOT NULL,                           /*图书名称*/
   book_author       CHAR(20)        NOT NULL,                           /*图书作者*/
   user_id           BIGINT UNSIGNED NOT NULL,                           /*外键  图书的拥有者*/
