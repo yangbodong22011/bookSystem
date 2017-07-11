@@ -105,8 +105,8 @@ eg:见下图,时间关系只画了这一张图。
 书籍评论：列出此书籍的所有评论。
 
 ## 3：数据库设计
-先自行设计完成。
-
+[https://github.com/yangbodong22011/bookSystem/blob/master/src/main/resources/bookSystem.sql](https://github.com/yangbodong22011/bookSystem/blob/master/src/main/resources/bookSystem.sql)
+[https://github.com/yangbodong22011/bookSystem/blob/master/src/main/resources/bookInsert.sql](https://github.com/yangbodong22011/bookSystem/blob/master/src/main/resources/bookInsert.sql)
 # 四：编码 & 测试
 # 五：上线
 # 六：维护
