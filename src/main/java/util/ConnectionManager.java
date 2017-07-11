@@ -18,7 +18,7 @@ public class ConnectionManager {
 
     // 初始化,只执行一次
     static {
-        ResourceBundle rb = ResourceBundle.getBundle("src/resources/c3p0");
+        ResourceBundle rb = ResourceBundle.getBundle("c3p0");
         ds = new ComboPooledDataSource();
         try {
             ds.setDriverClass(rb.getString("driver"));
