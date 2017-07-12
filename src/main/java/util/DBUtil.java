@@ -10,15 +10,15 @@ import java.util.Properties;
  * Created by yangbodong on 2017/7/10.
  */
 public class DBUtil {
-    private final String dbConnFile = "src/resources/jdbc.properties";
-    private Connection conn=null;
-    private String dbDriver;	//定义驱动
-    private String dbURL;		//定义URL
-    private String userName;	//定义用户名
-    private String password;	//定义密码
+    private final String dbConnFile = "/Users/yangbodong/git/java/bookSystem/src/main/resources/jdbc.properties";
+    private Connection conn = null;
+    private String dbDriver;    //定义驱动
+    private String dbURL;        //定义URL
+    private String userName;    //定义用户名
+    private String password;    //定义密码
 
     //从配置文件取数据库链接参数
-    private void loadConnProperties(){
+    private void loadConnProperties() {
         Properties props = new Properties();
         try {
             props.load(new FileInputStream(dbConnFile));//根据配置文件路径Conf加载配置文件
@@ -34,27 +34,27 @@ public class DBUtil {
 
     }
 
-    public boolean openConnection(){
+    public boolean openConnection() {
         try {
             loadConnProperties();
             Class.forName(dbDriver);
-            this.conn = DriverManager.getConnection(dbURL,userName,password);
+            this.conn = DriverManager.getConnection(dbURL, userName, password);
             return true;
-        } catch(ClassNotFoundException classnotfoundexception) {
+        } catch (ClassNotFoundException classnotfoundexception) {
             classnotfoundexception.printStackTrace();
             System.err.println("db: " + classnotfoundexception.getMessage());
-        } catch(SQLException sqlexception) {
+        } catch (SQLException sqlexception) {
             System.err.println("db.getconn(): " + sqlexception.getMessage());
         }
-        return	false;
+        return false;
     }
 
 
-    protected void finalize() throws Exception{
+    protected void finalize() throws Exception {
         try {
-            if(null!=conn)
+            if (null != conn)
                 conn.close();
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
 
@@ -76,10 +76,10 @@ public class DBUtil {
     }
 
     // 插入一条新纪录，并获取标识列的值
-    public ResultSet getInsertObjectIDs(String insertSql) throws Exception{
+    public ResultSet getInsertObjectIDs(String insertSql) throws Exception {
         ResultSet rst = null;
         try {
-            if(null==conn)
+            if (null == conn)
                 throw new Exception("Database not connected!");
 
             Statement stmt = conn.createStatement();
@@ -94,10 +94,10 @@ public class DBUtil {
     }
 
     // 插入、更新、删除
-    public int execCommand(String sql) throws Exception{
+    public int execCommand(String sql) throws Exception {
         int flag = 0;
         try {
-            if(null==conn)
+            if (null == conn)
                 throw new Exception("Database not connected!");
 
             Statement stmt = conn.createStatement();
@@ -113,7 +113,7 @@ public class DBUtil {
     // add by @author Wang
     // 2016 5 29
     public PreparedStatement execPrepared(String psql) throws Exception {
-        PreparedStatement pstmt = null ;
+        PreparedStatement pstmt = null;
         try {
             if (null == conn)
                 throw new Exception("Database not connected!");
@@ -146,10 +146,10 @@ public class DBUtil {
     }
 
     // 释放资源
-    public void close() throws SQLException, Exception{
-        if(null!=conn){
+    public void close() throws SQLException, Exception {
+        if (null != conn) {
             conn.close();
-            conn=null;
+            conn = null;
         }
     }
 
