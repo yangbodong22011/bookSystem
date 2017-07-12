@@ -1,4 +1,4 @@
-# XiyouLinuxGroupBookManagerSystem[西邮Linux兴趣小组图书管理系统]
+# [西邮Linux兴趣小组图书管理系统]
 
 ## QuickStart
 - `git clone git@github.com:yangbodong22011/bookSystem.git`
