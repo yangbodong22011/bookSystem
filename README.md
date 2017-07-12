@@ -1,3 +1,11 @@
+# XiyouLinuxGroupBookManagerSystem[西邮Linux兴趣小组图书管理系统]
+
+## QuickStart
+- `git clone git@github.com:yangbodong22011/bookSystem.git`
+- 确保自己环境安装了 `Maven`和`Tomcat`
+- 通过 [bookSystem.sql](https://github.com/yangbodong22011/bookSystem/blob/master/src/main/resources/bookSystem.sql) 和 [bookInsert.sql](https://github.com/yangbodong22011/bookSystem/blob/master/src/main/resources/bookInsert.sql) 创建数据库，插入数据。
+- 更改`util/DBUtil.java`和`resources/jdbc.properties`中jdbc的配置。
+- 运行项目，浏览器访问`http://localhost:8080`
 # 一：项目背景
 
 小组目前的书籍管理存在以下问题：
@@ -108,5 +116,7 @@ eg:见下图,时间关系只画了这一张图。
 [https://github.com/yangbodong22011/bookSystem/blob/master/src/main/resources/bookSystem.sql](https://github.com/yangbodong22011/bookSystem/blob/master/src/main/resources/bookSystem.sql)
 [https://github.com/yangbodong22011/bookSystem/blob/master/src/main/resources/bookInsert.sql](https://github.com/yangbodong22011/bookSystem/blob/master/src/main/resources/bookInsert.sql)
 # 四：编码 & 测试
+[2017-07-12] : 登录逻辑完成
+
 # 五：上线
 # 六：维护
