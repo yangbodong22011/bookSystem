@@ -61,7 +61,7 @@ CREATE TABLE book (
   PRIMARY KEY (book_id)
 );
 
-/*分类表：一本书对应一个分类*/
+/*分类表：一条记录表示一本书对应一个分类*/
 CREATE TABLE category (
   book_id      BIGINT UNSIGNED NOT NULL,                                 /*外键  分类和图书是多对多的关系*/
   dict_id      BIGINT UNSIGNED NOT NULL,                                 /*外键*/
